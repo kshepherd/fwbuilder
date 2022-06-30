@@ -11,8 +11,24 @@ Firewall Builder is a GUI firewall management application for iptables, PF, Cisc
 Installation instructions
 =========================
 
+Ubuntu >= 21.04
+---------
+The dependencies for recent versions of Ubuntu are slightly different as the qt5-default package was removed. Using the qtbase5-dev package instead ensures the required QT5 cmake files are available.
+```
+ sudo apt install git cmake libxml2-dev libxslt-dev libsnmp-dev qtbase5-dev qttools5-dev-tools
+ git clone https://github.com/fwbuilder/fwbuilder.git
+ mkdir build
+ cd build
+ cmake ../fwbuilder
+ make
+ sudo make install
+```
+Note: default destination is /usr/local. This is configurable:
+```
+ cmake ../fwbuilder -DCMAKE_INSTALL_PREFIX=/usr
+```
 
-Ubuntu
+Ubuntu <= 21.04
 ---------
 ```
  sudo apt install git cmake libxml2-dev libxslt-dev libsnmp-dev qt5-default qttools5-dev-tools
